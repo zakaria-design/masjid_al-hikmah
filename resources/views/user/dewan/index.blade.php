@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kegiatan | Masjid Al-hikmah</title>
+    <title>Dewan Masjid | Masjid Al-hikmah</title>
     <!-- link css yg disedikan bootsrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
       integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
@@ -18,6 +18,30 @@
     <link rel="stylesheet" href="{{ asset('dist/css/lightbox.min.css') }}">
 
 <style>
+    .dewan-card {
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .dewan-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .dewan-card img {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+        }
+
+        .badge-role {
+            font-size: 0.8rem;
+            padding: 6px 12px;
+            border-radius: 30px;
+        }
     .bank-logo {
     opacity: 0.6; /* agak pudar */
     transition: opacity 0.3s ease; /* efek transisi halus */
@@ -56,10 +80,10 @@
                         <a class="nav-link active"  href="{{ route('dashboard.mesjid') }}">Home</a>
                     </li>
                     <li class="nav-item me-5">
-                        <a class="nav-link active text-danger" aria-current="page" href="#">Kegiatan</a>
+                        <a class="nav-link active " href="{{ route('kegiatan.mesjid') }}" aria-current="page" href="#">Kegiatan</a>
                     </li>
                     <li class="nav-item me-5">
-                        <a class="nav-link" href="{{ route('dewan.mesjid') }}">Dewan Masjid</a>
+                        <a class="nav-link active: text-danger">Dewan Masjid</a>
                     </li>
                     <li class="nav-item me-5">
                         <a class="nav-link" aria-current="page" href="{{ route('saldo.mesjid') }}">Informasi Saldo</a>
@@ -68,16 +92,12 @@
             </div>
         </div>
     </nav>
-    <!-- 
-      note :
-      => active pada class link home untuk menandakan bahwa itu halaman yg aktive
-    -->
-    <!-- akhir navbar -->
+
 
     <!-- banner -->
     <div class="container-fluid banner d-flex align-items-center">
         <div class="container">
-            <h1 class="text-light text-center">Gallery Kegiatan</h1>
+            <h1 class="text-light text-center">Dewan Masjid</h1>
             <h3 class="text-light text-center">sistem informasi keuangan mesjid</h3>
             <!-- select box -->
             <div class="col-md-8 offset-md-2">
@@ -94,67 +114,97 @@
             <!-- akhir select box -->
         </div>
     </div>
-    <!-- 
-    note :
-    => d-flex = agar container h1 mempunyai dimensi yg sama
-    => col-md-8 offset-md-2 = select box yg dibungkus div agar ukurannya bisa lebih kecil dari defaultnya
-
-     -->
-    <!-- akhir banner -->
+    
 
     <!-- promo -->
     <div class="container-fluid py-5">
         <div class="container">
             
                 <div class="container py-5">
-                    <h2 class="text-center mb-5 fw-bold">📸 Galeri Foto Masjid</h2>
-
+                    <h2 class="text-center mb-5 fw-bold">Dewan Mas  jid Al-Hikmah</h2>
                     <div class="row g-4">
-                        @php
-                            $images = [
-                                'img/foto 1.jpg',
-                                'img/foto 2.jpg',
-                                'img/foto 4.jpg',
-                                'img/foto 5.jpg',
-                                'img/foto 6.jpg',
-                                'img/foto 7.jpg',
-                                'img/foto 8.jpg',
-                                'img/foto 9.jpg',
-                                'img/foto 10.jpg',
-                                'img/foto 11.jpg',
-                                'img/foto 12.jpg',
-                                'img/foto 13.jpg',
-                                'img/foto 14.jpg',
-                                'img/foto 15.jpg',
-                                'img/foto 16.jpg',
-                                'img/foto 17.jpg',
-                              
-                            ];
-                        @endphp
 
-                        @foreach ($images as $image)
-                            <div class="col-6 col-md-4 col-lg-3">
-                                <div class="card border-0 shadow-sm">
-                                    <img src="{{ asset($image) }}" alt="Foto Galeri" class="gallery-img">
-                                </div>
+                    <!-- Card 1 -->
+                    <div class="col-12 col-sm-6 col-lg-4">
+                        <div class="card dewan-card">
+                            <img src="{{ asset('dewan/download (12).jpg') }}" alt="">
+                            <div class="card-body text-center">
+                                <h5 class="fw-bold mb-1">Ust. Ahmad Nur</h5>
+                                <span class="badge bg-success badge-role">Ketua</span>
+                                <p class="text-muted mt-2 small">
+                                    Bertanggung jawab atas seluruh kegiatan dan administrasi masjid.
+                                </p>
                             </div>
-                        @endforeach
+                        </div>
                     </div>
+
+                    <!-- Card 2 -->
+                    <div class="col-12 col-sm-6 col-lg-4">
+                        <div class="card dewan-card">
+                            <img src="{{ asset('dewan/download (13).jpg') }}" alt="">
+                            <div class="card-body text-center">
+                                <h5 class="fw-bold mb-1">H. Muhammad Yusuf</h5>
+                                <span class="badge bg-primary badge-role">Wakil Ketua</span>
+                                <p class="text-muted mt-2 small">
+                                    Membantu ketua dalam pelaksanaan kegiatan dan manajemen masjid.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="col-12 col-sm-6 col-lg-4">
+                        <div class="card dewan-card">
+                            <img src="{{ asset('dewan/download (15).jpg') }}" alt="">
+                            <div class="card-body text-center">
+                                <h5 class="fw-bold mb-1">Siti Rahma</h5>
+                                <span class="badge bg-warning text-dark badge-role">Bendahara</span>
+                                <p class="text-muted mt-2 small">
+                                    Mengelola pemasukan dan pengeluaran kas masjid secara transparan.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="col-12 col-sm-6 col-lg-4">
+                        <div class="card dewan-card">
+                            <img src="{{ asset('dewan/download (14).jpg') }}" alt="">
+                            <div class="card-body text-center">
+                                <h5 class="fw-bold mb-1">Ust. Salman Ali</h5>
+                                <span class="badge bg-info text-dark badge-role">Sekretaris</span>
+                                <p class="text-muted mt-2 small">
+                                    Bertanggung jawab atas dokumentasi, administrasi dan surat menyurat masjid.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 5 -->
+                    <div class="col-12 col-sm-6 col-lg-4">
+                        <div class="card dewan-card">
+                            <img src="{{ asset('dewan/Haram kutip zakat di Pahang, bayar ke negeri lain.jpg') }}" alt="">
+                            <div class="card-body text-center">
+                                <h5 class="fw-bold mb-1">Ridwan Hadi</h5>
+                                <span class="badge bg-danger badge-role">Pengurus Kebersihan</span>
+                                <p class="text-muted mt-2 small">
+                                    Memastikan kebersihan masjid dan fasilitas selalu optimal.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                   
                 </div>
 
         </div>
     </div>
-    <!--
-    note :
-     => py-5 = agar bagian promo dengan banner ada jarak.
-     => pada div row diberikan justify-content-center, karena pada cardnya hanya memuat 9 colom, jadi tersisa 3 colom
-        yang tidak dipakai untuk itu pakai lah justify-content-center agar content nya berada ditengah
 
-      -->
-    <!-- akhir promo -->
 
     <!-- our service -->
-    <div class="container-fluid py-5 main-color">
+    {{-- <div class="container-fluid py-5 main-color">
         <div class="container">
             <h3 class="text-dark text-center mb-5">Aktivitas Kami</h3>
             <div class="row justify-content-center">
@@ -192,32 +242,35 @@
               </div>
             </div>
         </div>
-    </div>
-    <!-- 
-     note :
-     => <i class="bi bi-bicycle"></i> yaitu code untuk menampilkan icon dari bootsrap cdn
-     => d-flex align-items-center justify-content-center yaitu agar icon nya ada di tengah
-     => display-5 pada tag icon yaitu agar ukurannya lebih besar
-     => d-flex justify-content-center pada div pembungkus icon-service agar memposisikannya ke tengah
+    </div> --}}
 
-     -->
-    <!-- akhir our service -->
+         <div class="container-fluid py-5 main-color">
+        <div class="container">
+            <h3 class="text-center">Kritik Dan Saran</h3>
+            <p class="text-center">Berikan kesan anda setelah mengunjungi masjid Al-Hikmah</p>
 
-    <!-- produk -->
 
-    <!-- 
-    note :
-    => pada button diberi d-flex justify-content-center agar posisi nya ditengah        
-    -->
-    <!-- akhir produk -->
- 
-     <!-- 
-     note :
-     => pada class form diberi offset-lg-3 artinya sisa col 6 nya dibuat col kosong kiri 3, kanan 3
-     => pada saat lebar layar medium maka col-md-8 offset-md-2, yaitu lebar form 8 kolom sisanya dibuat ofset kiri 2, kanan2
-     => pada class btn diberi w-100 yaitu agar ukurannya sama dengan parent pembungkusnya
-     -->
-     <!-- akhir reservasi -->
+
+            <form class="col-md-8 offset-md-2 col-lg-6 offset-lg-3 mt-5" method="POST" action="{{ route('kirim.pesan') }}" enctype="multipart/form-data">
+                @csrf
+
+                <div class="mb-3">
+                    <label class="form-label">Nama</label>
+                    <input type="text" placeholder="nama anda" name="nama" class="form-control" value="{{ old('nama') }}" required>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Pesan</label>
+                    <textarea name="pesan" class="form-control" placeholder="Tulis pesan di sini..." rows="4" required></textarea>
+                </div>
+
+
+                <button class="btn btn-outline-dark w-100">Kirim</button>
+            </form>
+        </div>
+     </div>
+    
+    
 
     <!-- subscribe -->
      <div class="container-fluid py-5 subscribe text-light">
@@ -261,7 +314,20 @@
           berada di kiri dan kanan, atau berada diantara
       -->
       <!-- akhir footer -->
-
+{{-- Sweet Alert --}}
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        @if(session('success'))
+            Swal.fire({
+                icon: 'success',
+                title: 'Berhasil!',
+                text: "{{ session('success') }}",
+                confirmButtonText: 'OK'
+            });
+        @endif
+    });
+</script>
 
     <!-- link js dari bootstrap -->
     <script src="{{ asset('bootstrap-5.0.0-dist/js/bootstrap.bundle.min.js') }}"></script>

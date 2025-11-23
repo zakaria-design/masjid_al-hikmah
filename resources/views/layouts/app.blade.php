@@ -196,6 +196,26 @@
 
     @livewireScripts
 
+{{-- sweet alert --}}
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    document.addEventListener('livewire:init', () => {
+
+        // Sweet Alert Success Popup
+        Livewire.on('alert-success', (event) => {
+            Swal.fire({
+                icon: 'success',
+                title: 'Berhasil!',
+                text: event.message,
+                showCancelButton: false,
+            confirmButtonText: 'OK',
+            timer: false, // <-- supaya tidak auto close
+            });
+        });
+    });
+</script>
+
+
 <script>
         document.addEventListener('livewire:navigated', sidebarInit);
         document.addEventListener('DOMContentLoaded', sidebarInit);

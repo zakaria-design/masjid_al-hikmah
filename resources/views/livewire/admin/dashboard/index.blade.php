@@ -108,14 +108,24 @@
                             <div class="card-body">
                                 <h6 class="fw-bold">Siang</h6>
                                 <ul class="list-group list-group-flush mb-3">
-                                    <li class="list-group-item">jam 06.30</li>
-                                    <li class="list-group-item">jam 11.00</li>
+                                    @forelse($siang as $item)
+                                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                                          Jam  {{ \Carbon\Carbon::parse($item->jam)->format('H:i') }}
+                                        </li>
+                                    @empty
+                                        <li class="list-group-item text-muted">Belum ada jadwal siang</li>
+                                    @endforelse
                                 </ul>
 
                                 <h6 class="fw-bold">Malam</h6>
                                 <ul class="list-group list-group-flush">
-                                    <li class="list-group-item">jam 17.00</li>
-                                    <li class="list-group-item">jam 08.00</li>
+                                    @forelse($malam as $item)
+                                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                                          Jam  {{ \Carbon\Carbon::parse($item->jam)->format('H:i') }}
+                                        </li>
+                                    @empty
+                                        <li class="list-group-item text-muted">Belum ada jadwal malam</li>
+                                    @endforelse
                                 </ul>
                             </div>
                         </div>

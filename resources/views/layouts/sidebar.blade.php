@@ -42,6 +42,16 @@
                 </a>
             </li>
 
+            <li class="nav-item">
+                <a 
+                href="{{ route('admin.activitas.index') }}"
+                class="nav-link text-white d-flex align-items-center menu-link 
+                {{ request()->routeIs('admin.activitas.*') ? 'active' : '' }}">
+                   <i class="fas fa-share-alt mr-2"></i> 
+                    <span class="hide-when-collapse" style="opacity: 0.8;">Input Activitas</span>
+                </a>
+            </li>
+
             
         </ul>
     </div>
